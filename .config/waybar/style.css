@@ -1,0 +1,136 @@
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+window#waybar {
+    background-color: rgba(26, 27, 38, 0.5);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+/*-----module groups----*/
+.modules-right {
+	background-color: rgba(0,43,51,0.85);
+    margin: 2px 10px 0 0;
+}
+.modules-center {
+	background-color: rgba(0,43,51,0.85);
+    margin: 2px 0 0 0;
+}
+.modules-left {
+    margin: 2px 0 0 5px;
+	background-color: rgba(0,119,179,0.6);
+}
+/*-----modules indv----*/
+#workspaces button {
+    padding: 1px 5px;
+    background-color: transparent;
+}
+#workspaces button:hover {
+    box-shadow: inherit;
+	background-color: rgba(0,153,153,1);
+}
+
+#workspaces button.focused {
+	background-color: rgba(0,43,51,0.85);
+}
+
+menu {
+    background: #1a1b26;
+    color: #c0caf5;
+    border: 2px solid #33ccff; 
+    border-radius: 10px;
+    padding: 5px;
+}
+
+menu menuitem {
+    background: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+menu menuitem:hover {
+    background: #33ccff;
+    color: #1a1b26;
+}
+
+menu separator {
+    background: #33ccff;
+    margin: 5px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#custom-power,
+#custom-menu,
+#idle_inhibitor {
+    padding: 0 10px;
+}
+#mode {
+    color: #cc3436;
+    font-weight: bold;
+}
+#custom-power {
+    background-color: rgba(0,119,179,0.6);
+    border-radius: 100px;
+    margin: 5px 5px;
+    padding: 1px 1px 1px 6px;
+}
+/*-----Indicators----*/
+#idle_inhibitor.activated {
+    color: #2dcc36;
+}
+#pulseaudio.muted {
+    color: #cc3436;
+}
+#battery.charging {
+    color: #2dcc36;
+}
+#battery.warning:not(.charging) {
+	color: #e6e600;
+}
+#battery.critical:not(.charging) {
+    color: #cc3436;
+}
+#temperature.critical {
+    color: #cc3436;
+}
+
+tooltip {
+    background: rgba(30, 30, 46, 0.9); /* Sombre pour l'OLED */
+    border: 1px solid #33ccff;        /* Rappel de ta bordure cyan */
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: white;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+#custom-docker {
+    color: #0db7ed; /* Le bleu officiel de Docker */
+    padding: 0 0 0 10px; /* left padding */
+    margin: 0 4px; 
+}
+
+/*-----Colors----*/
+/*
+ *rgba(0,85,102,1),#005566 --> Indigo(dye)
+ *rgba(0,43,51,1),#002B33 --> Dark Green 
+ *rgba(0,153,153,1),#009999 --> Persian Green 
+ *
+ */

@@ -1,0 +1,97 @@
+{
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "custom/docker",
+        "battery",
+        "cpu", 
+        "memory", 
+        "network", 
+        "pulseaudio", 
+        "tray", 
+        "custom/power"
+    ],
+
+    "cpu": {
+        "interval": 10,
+        "format": "{usage}% ",
+        "tooltip": true,
+        "format-icons": [" ", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "tooltip-format": "Core usage:\n{usage0}% {usage1}% {usage2}% {usage3}%\n{usage4}% {usage5}% {usage6}% {usage7}%"
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% 󰘚",
+        "tooltip": true,
+        "tooltip-format": "Memory Used: {used:0.1f}GiB\nTotal RAM: {total:0.1f}GiB\nAvailable: {avail:0.1f}GiB",
+        "max-length": 10
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "network": {
+        "interval": 5,
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        
+        "exec": "sh ~/.config/rofi/scripts/network-manager.sh --status --disabled-color \"#f38ba8\" --enabled-color \"#a6e3a1\" | cat",
+        "return-type": "raw",
+        // Au clic gauche, on lance le menu Rofi
+        "on-click": "~/.config/rofi/scripts/network-manager.sh"
+    },
+    "tray": {
+        "icon-size": 15,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%H:%M - %a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "gnome-calendar"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} ",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "0% {icon} ",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+	"custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/scripts/powermenu.sh"
+    },
+    "custom/docker": {
+        "format": "{}",
+        "interval": 10,
+        "exec": "~/.config/waybar/scripts/docker-status.sh",
+        "return-type": "json",
+        "on-click": "alacritty -e 'docker ps'",
+        "tooltip": true
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{timeTo}\nSanté: {health}%",
+        "interval": 5
+    }
+}
